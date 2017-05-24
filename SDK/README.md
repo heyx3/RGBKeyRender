@@ -1,0 +1,1 @@
+The Razer Chroma SDK should be dropped into this folder (specifically the "inc" folder).

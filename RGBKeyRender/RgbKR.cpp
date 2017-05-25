@@ -133,19 +133,11 @@ namespace
 
 //The DLL code:
 
-float rkrGetAspectRatio()
-{
-    RZRESULT result = CheckModule();
-    if (result != RZRESULT_SUCCESS)
-        return result;
-
-    return (float)ChromaSDK::Keyboard::MAX_ROW / ChromaSDK::Keyboard::MAX_COLUMN;
-}
 uint8_t rkrGetWidth()
 {
     RZRESULT result = CheckModule();
     if (result != RZRESULT_SUCCESS)
-        return result;
+        return 0;
 
     return ChromaSDK::Keyboard::MAX_COLUMN;
 }
@@ -153,12 +145,12 @@ uint8_t rkrGetHeight()
 {
     RZRESULT result = CheckModule();
     if (result != RZRESULT_SUCCESS)
-        return result;
+        return 0;
 
     return ChromaSDK::Keyboard::MAX_ROW;
 }
 
-int rkrRenderToKeyboard(uint32_t imgWidth, uint32_t imgHeight, const RGBKey* texData)
+long rkrRenderToKeyboard(uint32_t imgWidth, uint32_t imgHeight, const RGBKey* texData)
 {
     RZRESULT result = CheckModule();
     if (result != RZRESULT_SUCCESS)
@@ -220,7 +212,7 @@ int rkrRenderToKeyboard(uint32_t imgWidth, uint32_t imgHeight, const RGBKey* tex
     //Apply the effect.
     return chr_CreateKeyboardEffect(ChromaSDK::Keyboard::CHROMA_CUSTOM, &theEffect, nullptr);
 }
-int rkrRenderToKeyboardSimple(const RGBKey* texData)
+long rkrRenderToKeyboardSimple(const RGBKey* texData)
 {
     RZRESULT result = CheckModule();
     if (result != RZRESULT_SUCCESS)
@@ -239,7 +231,7 @@ int rkrRenderToKeyboardSimple(const RGBKey* texData)
     return chr_CreateKeyboardEffect(ChromaSDK::Keyboard::CHROMA_CUSTOM, &theEffect, nullptr);
 }
 
-int rkrCleanUp()
+long rkrCleanUp()
 {
     if (ChromaSDKModule == NULL)
         return RZRESULT_SUCCESS;

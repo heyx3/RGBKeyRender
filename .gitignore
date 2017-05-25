@@ -85,6 +85,10 @@ $RECYCLE.BIN/
 # ========================
 RGBKeyRender/Build/
 RKR_Test/Build
+KPS/Assets/Plugins/RGBKeyRender.dll
+KPS/Library/
+KPS/KPS.csproj
+KPS/KPS.sln
 SDK
 *.VC.db
 *.VC.VC.opendb
